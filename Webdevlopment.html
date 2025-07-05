@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Web Dev Blog</title>
+  <style>
+    :root {
+      --bg-light: #f0faff;
+      --bg-dark: #1d1f27;
+      --text-light: #2c3e50;
+      --text-dark: #fafafa;
+      --accent: #008cff;
+      --code-bg-light: #eef6ff;
+      --code-bg-dark: #252838;
+    }
+
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-light);
+      transition: all 0.3s ease;
+    }
+
+    .dark-mode {
+      background-color: var(--bg-dark);
+      color: var(--text-dark);
+    }
+
+    .blog-container {
+      max-width: 850px;
+      background-color: white;
+      padding: 30px;
+      margin: auto;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+      transition: background-color 0.3s ease;
+    }
+
+    .dark-mode .blog-container {
+      background-color: #2a2d3c;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 28px;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    img.blog-image {
+      width: 100%;
+      border-radius: 12px;
+      margin: 25px 0;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      animation: fadeIn 2s ease-out;
+    }
+
+    img.blog-image:hover {
+      transform: scale(1.02);
+    }
+
+    p, ul, ol {
+      margin-bottom: 18px;
+    }
+
+    ul, ol {
+      padding-left: 20px;
+    }
+
+    h2, h3 {
+      margin-top: 35px;
+      margin-bottom: 10px;
+    }
+
+    code {
+      display: block;
+      background-color: var(--code-bg-light);
+      padding: 12px;
+      margin: 15px 0;
+      border-left: 4px solid var(--accent);
+      font-family: Consolas, monospace;
+      border-radius: 5px;
+      position: relative;
+      white-space: pre-wrap;
+      overflow-x: auto;
+    }
+
+    .dark-mode code {
+      background-color: var(--code-bg-dark);
+      color: #fafafa;
+    }
+
+    .copy-btn {
+      position: absolute;
+      top: 8px;
+      right: 10px;
+      font-size: 12px;
+      padding: 4px 10px;
+      background-color: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      opacity: 0.9;
+    }
+
+    blockquote {
+      background-color: #eaf6ff;
+      padding: 10px 20px;
+      font-style: italic;
+      border-left: 4px solid var(--accent);
+      margin: 20px 0;
+    }
+
+    .toggle-darkmode {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 8px 14px;
+      border: none;
+      background: var(--accent);
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 6px;
+      z-index: 999;
+    }
+
+    .scroll-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 10px 14px;
+      font-size: 14px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      box-shadow: 0 0 8px rgba(0,0,0,0.2);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 10px;
+      }
+
+      .blog-container {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <button class="toggle-darkmode" onclick="toggleDarkMode()">🌙 Toggle Dark Mode</button>
+  <button class="scroll-top" onclick="scrollToTop()">⬆️</button>
+
+  <div class="blog-container">
+    <h1>How to Start Your Web Development Journey as a Computer Science Student (Beginner Friendly!)</h1>
+
+    <img src="Images/web development.png" class="blog-image" alt="Web Development Image">
+
+    <p>Hello friend! 👋</p>
+    <p>Are you studying <a href="https://en.wikipedia.org/wiki/Computer_science" target="_blank">Computer Science</a> and getting curious about <a href="https://en.wikipedia.org/wiki/Web_development" target="_blank">web development</a>? Or maybe you're in school and thought, “Whoa, can I do that too?”</p>
+
+    <blockquote>"YES, you can — and it's not that hard!"</blockquote>
+    <p>This guide shows beginners (even from Class 6!) how to start learning web development 🚀</p>
+
+    <h2>🧠 What Is Web Development?</h2>
+    <p>Web development means creating websites. You use it every day!</p>
+    <ul>
+      <li><a href="https://google.com" target="_blank">Google</a></li>
+      <li><a href="https://youtube.com" target="_blank">YouTube</a></li>
+      <li><a href="https://www.flipkart.com" target="_blank">Flipkart</a> / <a href="https://amazon.in" target="_blank">Amazon</a></li>
+    </ul>
+
+    <h2>🤔 Who Can Become a Web Developer?</h2>
+    <ul>
+      <li>Class 6–12 Students</li>
+      <li>College Students</li>
+      <li>Anyone with curiosity!</li>
+    </ul>
+
+    <h2>🧱 What Makes a Website?</h2>
+    <ul>
+      <li><strong>HTML</strong> – Structure</li>
+      <li><strong>CSS</strong> – Style</li>
+      <li><strong>JavaScript</strong> – Behavior</li>
+    </ul>
+
+    <h2>🪜 Web Development Step-by-Step</h2>
+
+    <h3>✅ Step 1: How the Web Works</h3>
+    <ul>
+      <li>Type URL in Search Bar</li>
+      <li>Browser requests content from server</li>
+      <li>Server responds with a page</li>
+    </ul>
+    <p>🎥 <a href="https://www.youtube.com/watch?v=7_LPdttKXPc" target="_blank">How the Internet Works (YouTube)</a></p>
+
+    <h3>✅ Step 2: Learn HTML</h3>
+    <p>Try it here 👉 <a href="https://www.w3schools.com/html/tryit.asp" target="_blank">W3Schools HTML Editor</a></p>
+    <code>
+&lt;h1&gt;Hello, World!&lt;/h1&gt;
+&lt;p&gt;This is my first webpage 😊&lt;/p&gt;
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
+    </code>
+
+    <h3>✅ Step 3: Add CSS</h3>
+    <code>
+&lt;style&gt;
+  body { background-color: lightblue; font-family: Arial; }
+  h1 { color: darkblue; }
+&lt;/style&gt;
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
+    </code>
+
+    <h3>✅ Step 4: Try JavaScript</h3>
+    <code>
+&lt;button onclick="sayHi()"&gt;Click Me!&lt;/button&gt;
+&lt;script&gt;
+  function sayHi() {
+    alert("Hi there!");
+  }
+&lt;/script&gt;
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
+    </code>
+
+    <h2>🎓 CS Student Tips</h2>
+    <ul>
+      <li>✅ Data Structures, DBMS, CN, OS</li>
+      <li>✅ Web Projects – Resume Ready!</li>
+    </ul>
+
+    <h2>🧠 Beginner Roadmap</h2>
+    <ol>
+      <li>HTML, CSS, JS</li>
+      <li>Bootstrap, Flexbox</li>
+      <li>Git & GitHub</li>
+      <li>DOM, Functions</li>
+      <li><strong>Projects</strong>: Portfolio, Calculator</li>
+      <li>React, APIs (Advanced)</li>
+    </ol>
+
+    <h2>🧪 Free Tools to Try</h2>
+    <ul>
+      <li><a href="https://codepen.io" target="_blank">CodePen</a></li>
+      <li><a href="https://replit.com" target="_blank">Replit</a></li>
+      <li><a href="https://github.com/" target="_blank">GitHub</a></li>
+      <li><a href="https://figma.com" target="_blank">Figma</a></li>
+    </ul>
+
+    <h2>📱 Learning Apps</h2>
+    <ul>
+      <li><a href="https://play.google.com/store/apps/details?id=com.area120.grasshopper" target="_blank">Grasshopper</a></li>
+      <li><a href="https://www.sololearn.com/" target="_blank">SoloLearn</a></li>
+    </ul>
+
+    <h2>❤️ Final Thoughts</h2>
+    <p>Start small. Practice daily. Google your errors. You’ve got this!</p>
+
+    <code>
+&lt;h1&gt;Hello, World!&lt;/h1&gt;
+<button class="copy-btn" onclick="copyCode(this)">Copy</button>
+    </code>
+
+  </div>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+    }
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    window.onscroll = function () {
+      const btn = document.querySelector(".scroll-top");
+      if (document.documentElement.scrollTop > 300) {
+        btn.style.display = "block";
+      } else {
+        btn.style.display = "none";
+      }
+    };
+
+    function copyCode(button) {
+      const code = button.parentElement;
+      const text = code.innerText.replace("Copy", "").trim();
+      navigator.clipboard.writeText(text).then(() => {
+        button.innerText = "Copied!";
+        setTimeout(() => {
+          button.innerText = "Copy";
+        }, 2000);
+      });
+    }
+  </script>
+
+</body>
+</html>
