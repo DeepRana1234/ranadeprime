@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Deepak Rana | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    :root {
+      --primary: #00b894;
+      --secondary: #3a86ff;
+      --bg: #f3f7ff;
+      --text: #111;
+      --glass: rgba(255, 255, 255, 0.5);
+    }
+
+    * {
+      margin: 0;
+      padding: 10px;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* HEADER */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: var(--glass);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 30px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
+
+    .logo {
+      font-size: 24px;
+      color: black;
+      font-family: 'Playfair Display', serif;
+      font-weight: bold;
+    }
+
+    nav {
+      display: flex;
+      gap: 24px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #000;
+      font-weight: 500;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      height: 2px;
+      background: var(--primary);
+      width: 0%;
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      transition: 0.3s;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .menu-btn {
+      display: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: black;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 100px 20px 60px;
+    }
+
+    /* HERO / ABOUT */
+    .hero {
+      text-align: center;
+      padding-top: 80px;
+    }
+
+    .hero img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 4px solid var(--primary);
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    }
+
+    .hero h1 {
+      margin-top: 20px;
+      font-size: 28px;
+    }
+
+    .hero p.subtitle {
+      font-size: 18px;
+      color: #444;
+      margin-top: 10px;
+      font-weight: 400;
+    }
+
+    /* SLIDER */
+    .slider-container {
+      position: relative;
+      overflow: hidden;
+      max-width: 100%;
+      height: 380px;
+      border-radius: 16px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.05);
+      margin: 40px auto 20px;
+    }
+
+    .slider {
+      display: flex;
+      transition: all 1s ease-in-out;
+    }
+
+    .slide {
+      min-width: 100%;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 16px;
+    }
+
+    .slider-caption {
+      position: absolute;
+      bottom: 20px;
+      left: 24px;
+      background: rgba(255,255,255,0.7);
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-weight: bold;
+      color: #111;
+    }
+
+    /* Blog Cards */
+    .posts {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+
+    .post {
+      flex: 1 1 48%;
+      background: var(--glass);
+      padding: 16px;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      transition: 0.3s;
+    }
+
+    .post:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    .post img {
+      width: 100%;
+      height: 327px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .post h4 {
+      margin-top: 12px;
+      font-weight: 600;
+    }
+
+    /* Skills */
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 80px;
+      margin-top: 50px;
+    }
+
+    .skill-box {
+      background: var(--glass);
+      text-align: center;
+      padding: 24px 12px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      transition: 0.3s ease;
+    }
+
+    .skill-box:hover {
+      transform: scale(1.05);
+      background: #fff;
+    }
+
+    .skill-box i {
+      font-size: 28px;
+      color: var(--secondary);
+    }
+
+    .skill-box p {
+      font-weight: 500;
+      margin-top: 8px;
+    }
+
+    /* Contact */
+    form {
+      max-width: 500px;
+      margin: auto;
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      margin-top: 40px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 12px;
+      width: 100%;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      background: #eee;
+      margin-top: 60px;
+    }
+
+    footer a {
+      margin: 0 12px;
+      color: var(--primary);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media(max-width: 768px) {
+      nav {
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background: white;
+        padding: 15px;
+        flex-direction: column;
+        border-radius: 10px;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+      }
+      nav.show {
+        display: flex;
+      }
+      .menu-btn {
+        display: block;
+      }
+      .posts {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">Riya Rana</div>
+    <i class="fas fa-bars menu-btn" onclick="toggleMenu()"></i>
+    <nav id="navMenu">
+      <a href="#">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#blog">Blog</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="container">
+
+    <!-- Profile / Hero -->
+    <section class="hero" id="about">
+      <img src="Images/P2.png" alt="Profile">
+      <h1>Riya Rana</h1>
+      <p class="subtitle">Web Developer & Tech Enthusiast</p>
+    </section>
+
+    <!-- Slider -->
+    <section>
+      <div class="slider-container" id="slider">
+        <div class="slider" id="slideTrack">
+          <div class="slide"><img src="Images/web development.png"><div class="slider-caption">web development 👨‍💻</div></div>
+          <div class="slide"><img src="Images/HORESE.jpg"><div class="slider-caption">Power of HP</div></div>
+          <div class="slide"><img src="Images/GIRLS WITH SPRAY.jpg"><div class="slider-caption">Live your Life </div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog / Top Posts -->
+    <section id="blog">
+      <h2>Top Posts 📝</h2>
+      <div class="posts">
+        <div class="post">
+          <a href="Webdevlopment.html" target="_blank">
+          <img src="Images/w3.jpg" alt="">
+          </a>
+          <h4>How to Start Your Web Development Journey as a Computer Science Student (Beginner Friendly!)</h4>
+          <p>By Deepak Rana | Using HTML5, CSS3, and JavaScript from scratch.</p>
+        </div>
+        <div class="post">
+          <a href="hearts.html" target="_blank">
+          <img src="Images/heart2.jpg" alt="">
+          </a>
+          <h4>🫀 Beat the Heart Break: Effective Daily Habits to Fight Heart Disease</h4>
+          <p>By Deepak Rana | Health & Wellness Contributor</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <h2>My Skills 🛠️</h2>
+      <div class="skills">
+        <div class="skill-box"><i class="fab fa-html5"></i><p>HTML</p></div>
+        <div class="skill-box"><i class="fab fa-css3-alt"></i><p>CSS</p></div>
+        <div class="skill-box"><i class="fab fa-js"></i><p>JavaScript</p></div>
+        <div class="skill-box"><i class="fas fa-database"></i><p>SQL</p></div>
+        <div class="skill-box"><i class="fab fa-python"></i><p>Python</p></div>
+        <div class="skill-box"><i class="fas fa-chart-line"></i><p>Data Analysis</p></div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2>Contact Me 📬</h2>
+      <form onsubmit="submitForm(event)">
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea placeholder="Your Message..." rows="4" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Deepak Rana |
+    <a href="#">Privacy Policy</a> | 
+    <a href="#contact">Contact</a> |
+    <a href="#about">About</a>
+  </footer>
+
+  <script>
+    // Menu toggle
+    function toggleMenu() {
+      document.getElementById("navMenu").classList.toggle("show");
+    }
+
+    // Slider logic
+    let currentIndex = 0;
+    const slider = document.getElementById("slideTrack");
+    const slides = document.querySelectorAll(".slide");
+
+    function autoSlide() {
+      currentIndex = (currentIndex + 1) % slides.length;
+      slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    setInterval(autoSlide, 4000);
+
+    function submitForm(e) {
+      e.preventDefault();
+      alert("Thank you! Your message has been sent.");
+    }
+  </script>
+
+</body>
+</html>
